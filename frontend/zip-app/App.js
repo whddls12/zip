@@ -1,20 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+version https://git-lfs.github.com/spec/v1
+oid sha256:6bb9780bf9481d6e8a839a205e936bcc7cc1e1062f84d000c11eca65de8cf7d1
+size 1342
