@@ -1,28 +1,3 @@
-server:
-  port: 8080
-
-spring:
-  application:
-    name: ziip
-
-# S3
-cloud:
-  aws:
-    s3:
-      url: ${S3_URL}
-      bucket: ${S3_BUCKET}
-    credentials:
-      access-key: ${S3_ACCESS_KEY}
-      secret-key: ${S3_SECRET_KEY}
-    region:
-      static: ${S3_REGION}
-      auto: false
-    stack:
-      auto: false
-
-logging:
-  level:
-    com:
-      amazonaws:
-        util:
-          EC2MetadataUtils: ERROR
+version https://git-lfs.github.com/spec/v1
+oid sha256:6a61022875e3437330099804c572a00e35998aa7108a5e716808a45f56ff0690
+size 1153
