@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:de320c747887c2b06446c7ee23d694789533febcf2a64c4e063aab700538e2a3
-size 548
+package com.lastdance.ziip.diary.repository.entity;
+
+import lombok.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
+@Entity
+@Getter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+public class Emotion {
+
+    @Id @GeneratedValue
+     
+    private Long id;
+
+     
+    private String emotionName;
+
+     
+    private String imgUrl;
+
+    @OneToMany(mappedBy = "emotion",fetch = FetchType.LAZY)
+    private List<Diary> diaries;
+}
