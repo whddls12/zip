@@ -1,20 +1,3 @@
-package com.lastdance.ziip.family.enums;
-
-public enum FamilyResponseMessage {
-
-    FAMILY_REGIST_SUCCESS("가족 생성 성공"),
-    FAMILY_ACCEPT_SUCCESS("가족 구성원 등록 성공"),
-    FAMILY_LIST_SUCCESS("가족 리스트 조회 성공"),
-    FAMILY_NICKNAME_SUCCESS("가족 내 닉네임 변경 성공");
-    private final String message;
-
-
-    FamilyResponseMessage(String message) {
-        this.message = message;
-    }
-
-    public String getMessage(){
-        return message;
-    }
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f3a0d0b5bdd63d9d70acb0371db820a1d36ac6b4f9336b522051491dd3846213
+size 552
