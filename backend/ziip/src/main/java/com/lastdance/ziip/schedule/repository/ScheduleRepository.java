@@ -1,12 +1,3 @@
-package com.lastdance.ziip.schedule.repository;
-
-import com.lastdance.ziip.family.repository.entity.Family;
-import com.lastdance.ziip.schedule.repository.entity.Schedule;
-import java.util.List;
-import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
-
-    List<Schedule> findAllByFamily(Optional<Family> family);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:09ca0d91da5265ca5d93bba9ff0436cd0d704950c626681e0588260546fa645b
+size 529
