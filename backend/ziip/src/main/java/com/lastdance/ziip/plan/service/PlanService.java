@@ -1,11 +1,3 @@
-package com.lastdance.ziip.plan.service;
-
-import com.lastdance.ziip.member.repository.entity.Member;
-import com.lastdance.ziip.plan.dto.request.PlanWriteRequestDto;
-import com.lastdance.ziip.plan.dto.response.PlanDetailResponseDto;
-import com.lastdance.ziip.plan.dto.response.PlanWriteResponseDto;
-
-public interface PlanService {
-    PlanWriteResponseDto postPlan(Member member, PlanWriteRequestDto planWriteRequestDto);
-    PlanDetailResponseDto getPlanDetail(Member member, Long planId);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f48091bc424d0745133d50ae38034ac21cb5091c191ab308801f103b0e4713cb
+size 720
