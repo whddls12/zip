@@ -1,13 +1,3 @@
-package com.lastdance.ziip.diary.repository;
-
-import com.lastdance.ziip.diary.repository.entity.Diary;
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-import javax.persistence.EntityManager;
-import java.util.List;
-
-public interface DiaryRepository extends JpaRepository<Diary, Long> {
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:456b5c10564dcb634308d34ec7d0f703c9bc90d32c3446583d14a56d78eefd00
+size 517
