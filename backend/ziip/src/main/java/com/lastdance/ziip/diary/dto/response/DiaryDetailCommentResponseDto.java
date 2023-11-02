@@ -1,22 +1,3 @@
-package com.lastdance.ziip.diary.dto.response;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class DiaryDetailCommentResponseDto {
-
-    private Long commentId;
-    private String name;
-    private String content;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:db9f0ce052547e81d8ff49a5077fb06c232aa7b2d58563498bf592b0f00dd61f
+size 650
