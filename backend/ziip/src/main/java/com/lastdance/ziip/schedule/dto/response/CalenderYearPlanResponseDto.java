@@ -16,5 +16,5 @@ public class CalenderYearPlanResponseDto {
     private Long memberId;
     private Long statusCode;
     private String title;
-    private String content;
+//    private String content;
 }
