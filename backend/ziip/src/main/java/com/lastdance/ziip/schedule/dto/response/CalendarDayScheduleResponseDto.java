@@ -1,17 +1,3 @@
-package com.lastdance.ziip.schedule.dto.response;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class CalendarDayScheduleResponseDto {
-
-    private Long planId;
-    private String name;
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6aa3fefa2d4d8356c48f874e820eb14fd25a55e53d74a90752610ff6c6c5aaeb
+size 531
