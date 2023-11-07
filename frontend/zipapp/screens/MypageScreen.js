@@ -1,17 +1,3 @@
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function MypageScreen() {
-	return (
-		<View style={styles.container}>
-			<Text>마이페이지 화면</Text>
-		</View>
-	);
-}
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});
+version https://git-lfs.github.com/spec/v1
+oid sha256:62e6bbb26f3ab58ea20b660a4a3f04b8ea7677f6303d093948dd6d1e72fb5120
+size 13910
