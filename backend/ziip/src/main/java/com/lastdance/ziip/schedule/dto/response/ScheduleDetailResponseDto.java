@@ -1,21 +1,3 @@
-package com.lastdance.ziip.schedule.dto.response;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class ScheduleDetailResponseDto {
-
-    private String title;
-    private String startDate;
-    private String endDate;
-    private List<ScheduleDetailPlanResponseDto> scheduleDetailPlanResponseDtos;
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f2f0aebafd62551703fa075ec70c0c758e48d9fc3cf423b27de6b839c4ad0e0e
+size 531
