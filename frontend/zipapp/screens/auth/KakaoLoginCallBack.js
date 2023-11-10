@@ -1,15 +1,3 @@
-import { StyleSheet, View, Text, Button } from 'react-native';
-
-export default function KakaoLoginCallBack({ navigation }) {
-	return (
-		<View style={styles.container}>
-			<Text>카카오 로그인 중..</Text>
-		</View>
-	);
-}
-
-const styles = StyleSheet.create({
-	container: {
-		marginTop: 50,
-	},
-});
+version https://git-lfs.github.com/spec/v1
+oid sha256:ea688fc2c24b0e9a3dca06e2c98fe3d2990a07c5202be4fbe6a8a6724668d2d2
+size 3705
