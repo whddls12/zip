@@ -1,13 +1,3 @@
-package com.lastdance.ziip.member.repository;
-
-import com.lastdance.ziip.member.repository.entity.Member;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
-import java.util.Optional;
-
-public interface MemberRepository extends JpaRepository<Member, Long> {
-    Optional<Member> findBySocialId(String socialId);
-
-    Optional<Member> findByName(String nickname);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:43c669f0eb06044379e3b8f0f0b6e0e7b3875acad1de1be979a6f9ac8995704a
+size 708
