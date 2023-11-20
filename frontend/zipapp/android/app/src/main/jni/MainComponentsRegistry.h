@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a4976d355fcd79a5febef096fc5b457b223010ae8bea04c25584b6797c79b9d7
-size 903
+#pragma once
+
+#include <ComponentFactory.h>
+#include <fbjni/fbjni.h>
+#include <react/renderer/componentregistry/ComponentDescriptorProviderRegistry.h>
+#include <react/renderer/componentregistry/ComponentDescriptorRegistry.h>
+
+namespace facebook {
+namespace react {
+
+class MainComponentsRegistry
+    : public facebook::jni::HybridClass<MainComponentsRegistry> {
+ public:
+  // Adapt it to the package you used for your Java class.
+  constexpr static auto kJavaDescriptor =
+      "Lcom/zipapp/newarchitecture/components/MainComponentsRegistry;";
+
+  static void registerNatives();
+
+  MainComponentsRegistry(ComponentFactory *delegate);
+
+ private:
+  static std::shared_ptr<ComponentDescriptorProviderRegistry const>
+  sharedProviderRegistry();
+
+  static jni::local_ref<jhybriddata> initHybrid(
+      jni::alias_ref<jclass>,
+      ComponentFactory *delegate);
+};
+
+} // namespace react
+} // namespace facebook

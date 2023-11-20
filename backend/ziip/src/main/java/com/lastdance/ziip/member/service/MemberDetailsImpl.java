@@ -1,3 +1,61 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5bcc2bb4584f19f4d78eebef7a4834f3953024e636dbe8b805aeea00743ac6dc
-size 1255
+package com.lastdance.ziip.member.service;
+
+import com.lastdance.ziip.member.repository.entity.Member;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+@RequiredArgsConstructor
+public class MemberDetailsImpl implements UserDetails {
+    private final Member member;
+
+    public Member getUser() {
+        return member;
+    }
+
+    @Override
+    public String getPassword() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return member.getName();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+
+        Collection<GrantedAuthority> collectors = new ArrayList<>();
+
+
+        collectors.add(()->{return "ROLE_"+member.getRole();});
+
+
+        return collectors;
+    }
+
+}

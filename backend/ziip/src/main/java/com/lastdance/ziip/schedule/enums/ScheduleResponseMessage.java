@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:677901629b61c457b8c5b5094a75b2561eb622b3620acb77c2273b164337a044
-size 683
+package com.lastdance.ziip.schedule.enums;
+
+public enum ScheduleResponseMessage {
+
+    SCHEDULE_REGIST_SUCCESS("일정 등록 성공"),
+    SCHEDULE_LIST_SUCCESS("일정 리스트 조회 성공"),
+    SCHEDULE_DETAIL_SUCCESS("일정 상세조회 성공"),
+    SCHEDULE_MODIFY_SUCCESS("일정 수정 성공"),
+    SCHEDULE_DELETE_SUCCESS("일정 삭제 성공"),
+    SCHEDULE_PHOTO_REGIST_SUCCESS("일정 사진 등록 성공"),
+    SCHEDULE_PHOTO_DELETE_SUCCESS("일정 사진 삭제 성공");
+
+    private final String message;
+
+
+    ScheduleResponseMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+}
+

@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11ac873303026b801d8106395c9b8c08cb3d0fe49ebbad046a55aa01b541d6dd
-size 541
+package com.lastdance.ziip.plan.repository.entity;
+
+import com.lastdance.ziip.global.util.CodeConverter;
+import com.lastdance.ziip.plan.enums.Code;
+import com.lastdance.ziip.plan.enums.Status;
+import lombok.*;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+public class StatusCode {
+
+    @Id @GeneratedValue
+    private Long id;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    @Convert(converter = CodeConverter.class)
+    private Code code;
+}

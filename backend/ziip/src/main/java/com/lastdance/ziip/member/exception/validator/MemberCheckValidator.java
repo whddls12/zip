@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11ee4d3e4200211b5dd535b62f16eac4811f5ad179cc7956e837965cd23108f3
-size 605
+package com.lastdance.ziip.member.exception.validator;
+
+import com.lastdance.ziip.member.exception.NoExistMember;
+import com.lastdance.ziip.member.repository.entity.Member;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
+
+import java.util.Optional;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Component
+public class MemberCheckValidator {
+
+    public void checkMemberExist(Optional<Member> member){
+        if(member.isEmpty()){
+            throw new NoExistMember("일치하는 회원이 존재하지 않습니다.");
+        }
+    }
+}

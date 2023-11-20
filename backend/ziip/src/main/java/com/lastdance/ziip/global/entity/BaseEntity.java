@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d2110dc88eb2f8408766fcd0e54eb0be434f6ae243d3b52bf574a43c160e74cb
-size 653
+package com.lastdance.ziip.global.entity;
+
+import java.time.LocalDateTime;
+import javax.persistence.EntityListeners;
+import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
+
+import lombok.Getter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Getter
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
+public class BaseEntity {
+    @CreatedDate @NotNull
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate @NotNull
+    private LocalDateTime updatedAt;
+}

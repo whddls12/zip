@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5becef7dc670d7d8039568f7bf3c290735116315b667568131bf385ff0990777
-size 854
+import styled, {css} from 'styled-components'
+
+interface ButtonProps {
+  children?: React.ReactNode
+  onClick?: () => void
+  href?: string
+  download? : boolean
+  $responsiveButton? : boolean
+
+}
+
+const StyledButton = styled.a<ButtonProps>`
+
+
+  ${(props) => 
+    props.$responsiveButton &&
+    css`
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      color: white;
+      width: 140px;
+      height: 40px;
+      border-radius: 10px;
+      font-size: 20px;
+      line-height: 40px;
+      text-decoration: none;
+  
+    @media only screen and (min-width: 1025px) {
+      background-color: white;
+      color: black;
+      }
+      
+    `
+  }
+`
+
+const Button = (props: ButtonProps) => {
+
+  return <StyledButton {...props}>{props.children}</StyledButton>
+}
+
+export default Button

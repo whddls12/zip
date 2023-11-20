@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0d753bb1652ac5196a80fe25c0ec607aba6b54e1f940cd9850aedd3b4d5b4c8e
-size 648
+package com.lastdance.ziip.global.util.property;
+
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+@Getter
+public class RedisProperties {
+    public String REDIS_HOST;
+    public int REDIS_PORT;
+    public String REDIS_PASSWORD;
+
+    public RedisProperties(@Value("${REDIS_HOST}") String redisHost,
+                           @Value("${REDIS_PORT}") int redisPort,
+                           @Value("${REDIS_PASSWORD}") String redisPassword) {
+        REDIS_HOST = redisHost;
+        REDIS_PORT = redisPort;
+        REDIS_PASSWORD = redisPassword;
+    }
+}

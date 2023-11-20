@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f37fbdd676b3c2b24838020fc9a1916ed3376bb4e7027c2845d0d4e8a2d68b56
-size 741
+package com.lastdance.ziip.family.repository;
+
+import com.lastdance.ziip.family.repository.entity.Family;
+import com.lastdance.ziip.family.repository.entity.FamilyMember;
+import com.lastdance.ziip.member.repository.entity.Member;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FamilyMemberRepository extends JpaRepository<FamilyMember, Long> {
+    FamilyMember findByMemberAndFamily(Member findMember, Family family);
+
+    List<FamilyMember> findAllByMember(Member findMember);
+
+    FamilyMember findByMemberAndFamily(Member findMember, Long familyId);
+
+    FamilyMember findByMemberAndFamilyId(Member findMember, Long familyId);
+
+    List<FamilyMember> findByFamily(Family family);
+}

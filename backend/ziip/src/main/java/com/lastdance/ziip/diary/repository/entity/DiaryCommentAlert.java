@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:13cb3121810e9ddac611fd107d7b513fc2ff5be32238e456f86d5e45d8414b70
-size 635
+package com.lastdance.ziip.diary.repository.entity;
+
+import com.lastdance.ziip.diary.enums.IsRead;
+import com.lastdance.ziip.member.repository.entity.Member;
+import lombok.*;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+public class DiaryCommentAlert {
+
+    @Id @GeneratedValue
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "diary_comment_id")
+    private DiaryComment diaryComment;
+
+    private IsRead isRead;
+}

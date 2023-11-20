@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:100dd8e93385a0d9dd306bb6c110a70bedf6f7c1bf114e53a206f16b07362e91
-size 533
+package com.lastdance.ziip.question.repository.entity;
+
+import com.lastdance.ziip.family.repository.entity.Family;
+import com.lastdance.ziip.global.entity.BaseEntity;
+import lombok.*;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+public class Question extends BaseEntity {
+
+    @Id @GeneratedValue
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "family_id")
+    private Family family;
+
+    private String content;
+}
