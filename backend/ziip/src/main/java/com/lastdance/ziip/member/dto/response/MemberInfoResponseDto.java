@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:176a48d0328e04d664ec740f068a91e67a183ee5df0f373f3a123b068e881b81
-size 661
+package com.lastdance.ziip.member.dto.response;
+
+import com.lastdance.ziip.member.enums.Gender;
+import com.lastdance.ziip.member.repository.entity.Member;
+import lombok.Builder;
+import lombok.Getter;
+
+@Getter
+public class MemberInfoResponseDto {
+
+    private Long id;
+    private String email;
+    private String name;
+    private Gender gender;
+    private String profileImgUrl;
+
+    @Builder
+    public MemberInfoResponseDto(Member member) {
+        this.id = member.getId();
+        this.email = member.getEmail();
+        this.name = member.getName();
+        this.gender = member.getGender();
+        this.profileImgUrl = member.getProfileImgUrl();
+    }
+}

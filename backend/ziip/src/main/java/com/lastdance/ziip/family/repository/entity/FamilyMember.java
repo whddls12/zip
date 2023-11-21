@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:822603b1b055447ddbaca1033dd92c9fcfae616a3b1314e5ba1549d0c5af8621
-size 782
+package com.lastdance.ziip.family.repository.entity;
+
+import com.lastdance.ziip.member.repository.entity.Member;
+
+import javax.persistence.*;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Getter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+public class FamilyMember {
+
+    @Id @GeneratedValue
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "family_id")
+    private Family family;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    private String nickname;
+
+    public void updateNickname(String nickname){
+        this.nickname = nickname;
+    }
+
+}

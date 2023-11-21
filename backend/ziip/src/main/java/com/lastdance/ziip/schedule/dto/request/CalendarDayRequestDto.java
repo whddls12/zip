@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3f1a0068bc47a0c34a70930739b7c28adb02872d8f2a6993f7bc7249d0b352fa
-size 548
+package com.lastdance.ziip.schedule.dto.request;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class CalendarDayRequestDto {
+
+    private String todayDate;
+
+    public LocalDate getTodayDateAsLocalDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.parse(todayDate, formatter);
+    }
+}

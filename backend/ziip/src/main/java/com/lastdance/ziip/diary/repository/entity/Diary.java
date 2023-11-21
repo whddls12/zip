@@ -1,3 +1,57 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:79306f9870611e221b18df3cd03e050b851c614bef1b4e19c061da579b6ad830
-size 1685
+package com.lastdance.ziip.diary.repository.entity;
+
+import com.lastdance.ziip.diary.dto.request.DiaryModifyRequestDto;
+import com.lastdance.ziip.diary.repository.EmotionRepository;
+import com.lastdance.ziip.family.repository.entity.Family;
+import com.lastdance.ziip.global.entity.BaseEntity;
+import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+import com.lastdance.ziip.member.repository.entity.Member;
+import lombok.*;
+
+@Entity
+@Getter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@ToString
+public class Diary extends BaseEntity {
+
+    @Id @GeneratedValue
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "family_id")
+     
+    private Family family;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+     
+    private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "emotion_id")
+    private Emotion emotion;
+
+    private String title;
+
+    private String content;
+
+    @OneToMany(mappedBy = "diary", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<DiaryPhoto> diaryPhotos;
+
+    @OneToMany(mappedBy = "diary", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<DiaryComment> diaryComments;
+
+    @OneToMany(mappedBy = "diary", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private List<DiaryAlert> diaryAlerts;
+
+    public void updateDiary(DiaryModifyRequestDto diaryModifyRequestDto, Emotion emotion){
+        this.content = diaryModifyRequestDto.getContent();
+        this.title = diaryModifyRequestDto.getTitle();
+        this.emotion = emotion;
+    }
+}

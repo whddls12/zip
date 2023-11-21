@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ee2d4fdfcbd51a6b6c04bbd7ecd9eff37c03753f35f83b8acd2db0afea58d986
-size 713
+package com.lastdance.ziip.schedule.service;
+
+import com.lastdance.ziip.member.repository.entity.Member;
+import com.lastdance.ziip.schedule.dto.request.CalendarDayRequestDto;
+import com.lastdance.ziip.schedule.dto.response.CalendarDayResponseDto;
+import com.lastdance.ziip.schedule.dto.response.CalendarMonthResponseDto;
+import com.lastdance.ziip.schedule.dto.response.CalendarYearResponseDto;
+
+public interface CalendarService {
+    CalendarYearResponseDto yearCalendar(Member findMember, int year, Long familyId);
+
+    CalendarDayResponseDto dayCalendar(Member findMember, String todayDate , Long familyId);
+
+    CalendarMonthResponseDto monthCalendar(Member findMember, int year, int month , Long familyId);
+}

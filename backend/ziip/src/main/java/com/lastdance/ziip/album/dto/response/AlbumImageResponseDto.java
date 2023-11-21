@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:40802eaf4b7177b6e5589b8b86dc041b7080d3829b421c71fc8580e6910eb451
-size 725
+package com.lastdance.ziip.album.dto.response;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.lastdance.ziip.album.enums.ImageCategory;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class AlbumImageResponseDto {
+
+    private ImageCategory category;
+    private String imgUrl;
+    private String detail;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate startDate;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate endDate;
+
+
+
+
+}

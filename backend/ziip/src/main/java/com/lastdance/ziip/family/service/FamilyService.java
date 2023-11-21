@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d1f9a5bb8df1bb0d1e62b628c292625364ca840c235210f9070644df52fca54a
-size 1393
+package com.lastdance.ziip.family.service;
+
+import com.lastdance.ziip.family.dto.request.*;
+import com.lastdance.ziip.family.dto.response.*;
+import com.lastdance.ziip.member.repository.entity.Member;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+
+public interface FamilyService {
+
+    FamilyRegisterResponseDto registFamily(Member findMember, FamilyRegisterRequestDto familyRegisterRequest, MultipartFile file) throws IOException;
+
+    FamilyRegisterAcceptResponseDto acceptFamily(Member findMember, FamilyRegisterAcceptRequestDto familyRegisterAcceptRequest);
+
+    FamilyListResponseDto listFamily(Member findMember);
+
+    FamilyNickNameResponseDto modifyNickname(Member findMember, FamilyNickNameRequestDto familyNickNameRequest);
+
+    FamilyChoiceResponseDto choiceFamily(Member findMember, long familyId);
+    FamilyModifyResponseDto modifyFamily(Member findMember, FamilyModifyReqeustDto familyModifyReqeustDto, MultipartFile file) throws IOException;
+    FamilyMemberResponseDto getFamilyMember(Member findMember, long familyId);
+    FamilyCheckCodeResponseDto checkFamilyCode(Member findMember, FamilyCheckCodeRequestDto familyCheckCodeRequestDto);
+    FamilyInviteResponseDto inviteFamily(Member findMember, FamilyInviteRequestDto familyInviteRequestDto);
+    FamilyMemberDetailResponseDto getMemberNickname(Member findMember, Long familyId);
+
+}

@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:695f88c41bd9ba9982185973bf449f5bee9fcc9c97a05fc15df65d71a323eb56
-size 860
+package com.lastdance.ziip.diary.dto.response;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.lastdance.ziip.diary.repository.entity.DiaryComment;
+import com.lastdance.ziip.diary.repository.entity.DiaryPhoto;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class DiaryDetailResponseDto {
+
+    private Long diaryId;
+
+    private String name;
+
+    private String title;
+
+    private String content;
+
+    private Long emotionId;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDateTime createdAt;
+
+    private List<DiaryDetailPhotoResponseDto> diaryPhotos;
+
+    private List<DiaryDetailCommentResponseDto> diaryComments;
+}

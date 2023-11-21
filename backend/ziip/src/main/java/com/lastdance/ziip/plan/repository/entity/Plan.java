@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3b6b673d6dfc90ab868f407ce476082377d479d0ac1cf3a7c6b9e4639ca71eff
-size 1284
+package com.lastdance.ziip.plan.repository.entity;
+
+import com.lastdance.ziip.global.entity.BaseEntity;
+import com.lastdance.ziip.member.repository.entity.Member;
+import com.lastdance.ziip.plan.dto.request.PlanModifyRequestDto;
+import com.lastdance.ziip.schedule.repository.entity.Schedule;
+import lombok.*;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+public class Plan extends BaseEntity {
+
+    @Id @GeneratedValue
+    private Long id;
+
+    // 일정 id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "schedule_id")
+    private Schedule schedule;
+
+    // 회원 id(담당자)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    // 할일 상태 코드 id
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "status_code_id")
+    private StatusCode statusCode;
+
+    // 제목
+    private String title;
+    // 메모
+//    private String content;
+
+    public void update(PlanModifyRequestDto planModifyRequestDto, Member member){
+        this.member = member;
+        this.title = planModifyRequestDto.getTitle();
+    }
+
+    public void updateStatusCode(StatusCode statusCode){
+        this.statusCode = statusCode;
+    }
+}
